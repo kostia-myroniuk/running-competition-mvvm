@@ -1,0 +1,31 @@
+﻿<Window x:Class="RunningCompetitionMVVM.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RunningCompetitionMVVM"
+        mc:Ignorable="d"
+        Title="Running Competition" Height="600" Width="1000">
+    <Grid Margin="0,0,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ListView Name="EntryGrid" Grid.Row="1" Margin="10,10,12,13" ItemsSource="{Binding SortedResults}"  >
+            <ListView.View>
+                <GridView x:Name="grdTest">
+                    <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"  Width="100"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}"  Width="80"/>
+                    <GridViewColumn Header="Patronymic" DisplayMemberBinding="{Binding Patronymic}"  Width="100"/>
+                    <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"  Width="50" />
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="100" />
+                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Place}" Width="100" />
+                    <GridViewColumn Header="Distance" DisplayMemberBinding="{Binding Distance}" Width="60" />
+                    <GridViewColumn Header="Finish time" DisplayMemberBinding="{Binding FinishTime}" Width="80" />
+                    <GridViewColumn Header="Average time" DisplayMemberBinding="{Binding AverageTime}" Width="80" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
