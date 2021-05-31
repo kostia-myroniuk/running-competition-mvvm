@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Name="EntryGrid" Grid.Row="1" Margin="337,7,29,100" ItemsSource="{Binding SortedResults}"  >
+        <ListView Name="EntryGrid" Grid.Row="1" Margin="337,7,29,100" ItemsSource="{Binding Results}"  >
             <ListView.View>
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"  Width="100"/>
@@ -20,10 +20,10 @@
                     <GridViewColumn Header="Patronymic" DisplayMemberBinding="{Binding Patronymic}"  Width="100"/>
                     <GridViewColumn Header="Age" DisplayMemberBinding="{Binding Age}"  Width="50" />
                     <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}" Width="100" />
-                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Place}" Width="100" />
+                    <GridViewColumn Header="Location" DisplayMemberBinding="{Binding Location}" Width="100" />
                     <GridViewColumn Header="Distance" DisplayMemberBinding="{Binding Distance}" Width="60" />
                     <GridViewColumn Header="Finish time" DisplayMemberBinding="{Binding FinishTime}" Width="80" />
-                    <GridViewColumn Header="Average time" DisplayMemberBinding="{Binding AverageTime}" Width="80" />
+                    <GridViewColumn Header="Average speed" DisplayMemberBinding="{Binding AverageSpeed}" Width="85" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -35,7 +35,7 @@
         <Label Content="Patronymic" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,63,0,0" x:Name="label1_Copy1" VerticalAlignment="Top" Width="90" />
         <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,91,0,0" x:Name="txtUserId_Copy2" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Age}" />
         <Label Content="Age" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,91,0,0" x:Name="label1_Copy2" VerticalAlignment="Top" Width="90" />
-        <DatePicker Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,119,0,0" x:Name="txtUserId_Copy3" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Date}" />
+        <DatePicker Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,119,0,0" x:Name="txtUserId_Copy3" VerticalAlignment="Top" Width="195" Text="{Binding Path=NewResult.Date}" />
         <Label Content="Date" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,119,0,0" x:Name="label1_Copy3" VerticalAlignment="Top" Width="90" />
         <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,147,0,0" x:Name="txtUserId_Copy4" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Location}" />
         <Label Content="Location" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,147,0,0" x:Name="label1_Copy4" VerticalAlignment="Top" Width="90" />
