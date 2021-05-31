@@ -67,7 +67,6 @@ namespace RunningCompetitionMVVM.Model
         public double AverageSpeed
         {
             get { return (double)distance / finishTime; }
-            set { }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
