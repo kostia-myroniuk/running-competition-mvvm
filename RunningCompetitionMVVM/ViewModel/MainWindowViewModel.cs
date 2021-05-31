@@ -15,18 +15,49 @@ namespace RunningCompetitionMVVM.ViewModel
         public Result NewResult 
         {
             get { return newResult; }
-            set { newResult = value; }
+            set 
+            { 
+                newResult = value;
+                OnPropertyChanged("NewResult");
+            }
         }
 
         public ObservableCollection<Result> Results
         {
             get { return results; }
-            set { results = value; }
+            set 
+            { 
+                results = value;
+                OnPropertyChanged("Results");
+                OnPropertyChanged("SortedResults");
+            }
         }
 
         public ObservableCollection<Result> SortedResults
         {
             get { return results; }
+        }
+
+        private RelayCommand addCommand;
+
+        public RelayCommand AddCommand
+        {
+            get
+            {
+                return addCommand ??
+                (addCommand = new RelayCommand(obj =>
+                {
+                    Result o = (Result)obj;
+                    Result result = new Result { Surname = o.Surname, Name = o.Name, Patronymic = o.Patronymic, Age = o.Age, 
+                        Location = o.Location, Distance = o.Distance, FinishTime = o.FinishTime };
+                    results.Add(result);
+                    OnPropertyChanged("SortedResults");
+
+                    newResult = new Result { Surname = "Surname", Name = "Name", Patronymic = "Patronymic", Age = 30, 
+                            Distance = 1000, Date = DateTime.Now, Location = "Location", FinishTime = 60 };
+                    OnPropertyChanged("NewResult");
+                }));
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

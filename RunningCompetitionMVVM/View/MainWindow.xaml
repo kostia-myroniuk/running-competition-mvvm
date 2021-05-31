@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RunningCompetitionMVVM"
         mc:Ignorable="d"
-        Title="Running Competition" Height="600" Width="1000">
+        Title="Running Competition" Height="600" Width="1200">
     <Grid Margin="0,0,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListView Name="EntryGrid" Grid.Row="1" Margin="10,10,12,13" ItemsSource="{Binding SortedResults}"  >
+        <ListView Name="EntryGrid" Grid.Row="1" Margin="337,7,29,100" ItemsSource="{Binding SortedResults}"  >
             <ListView.View>
                 <GridView x:Name="grdTest">
                     <GridViewColumn Header="Surname" DisplayMemberBinding="{Binding Surname}"  Width="100"/>
@@ -27,5 +27,24 @@
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,7,0,0" Name="txtUserId" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Surname}" />
+        <Label Content="Surname" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,7,0,0" Name="label1" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,35,0,0" x:Name="txtUserId_Copy" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Name}" />
+        <Label Content="Name" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,35,0,0" x:Name="label1_Copy" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,63,0,0" x:Name="txtUserId_Copy1" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Patronymic}" />
+        <Label Content="Patronymic" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,63,0,0" x:Name="label1_Copy1" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,91,0,0" x:Name="txtUserId_Copy2" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Age}" />
+        <Label Content="Age" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,91,0,0" x:Name="label1_Copy2" VerticalAlignment="Top" Width="90" />
+        <DatePicker Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,119,0,0" x:Name="txtUserId_Copy3" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Date}" />
+        <Label Content="Date" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,119,0,0" x:Name="label1_Copy3" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,147,0,0" x:Name="txtUserId_Copy4" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Location}" />
+        <Label Content="Location" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,147,0,0" x:Name="label1_Copy4" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,175,0,0" x:Name="txtUserId_Copy5" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.Distance}" />
+        <Label Content="Distance" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,175,0,0" x:Name="label1_Copy5" VerticalAlignment="Top" Width="90" />
+        <TextBox Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="107,203,0,0" x:Name="txtUserId_Copy6" VerticalAlignment="Top" Width="195" Text="{Binding NewResult.FinishTime}" />
+        <Label Content="Finish time" Grid.Row="1" Height ="23" HorizontalAlignment="Left" Margin="12,203,0,0" x:Name="label1_Copy6" VerticalAlignment="Top" Width="90" />
+        <Button Content="Add Result" Grid.Row="1" Height="39" HorizontalAlignment="Left" Margin="12,425,0,0" Name="btnAdd"   
+                VerticalAlignment="Top" Width="290"  
+                Command="{Binding Path=AddCommand}" CommandParameter="{Binding NewResult}" />
     </Grid>
 </Window>
