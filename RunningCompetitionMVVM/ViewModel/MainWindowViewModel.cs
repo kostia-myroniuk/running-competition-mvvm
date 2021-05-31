@@ -53,12 +53,8 @@ namespace RunningCompetitionMVVM.ViewModel
 
                     allResults.Add(newResult);
                     results.Add(newResult);
-                    ObservableCollection<Result> temp;
-                    temp = new ObservableCollection<Result>(results.OrderByDescending(r => r.AverageSpeed).Take(5));
-                    results.Clear();
-                    foreach (Result j in temp) results.Add(j);
-
-                    //OnPropertyChanged("Results");
+                    SortResults();
+                    OnPropertyChanged("Results");
 
                     newResult = new Result { Surname = "Surname", Name = "Name", Patronymic = "Patronymic", Age = 30, 
                             Distance = 1000, Date = DateTime.Now, Location = "Location", FinishTime = 60 };
@@ -67,6 +63,13 @@ namespace RunningCompetitionMVVM.ViewModel
             }
         }
 
+        public void SortResults()
+        {
+            ObservableCollection<Result> temp;
+            temp = new ObservableCollection<Result>(results.OrderByDescending(r => r.AverageSpeed).Take(5));
+            results.Clear();
+            foreach (Result j in temp) results.Add(j);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -83,13 +86,13 @@ namespace RunningCompetitionMVVM.ViewModel
             results = new ObservableCollection<Result>()
             {
                 new Result { Surname = "Koval", Name = "Yuriy", Patronymic = "Vitaliyovych", Age = 90, 
-                    Distance = 1000, Date = DateTime.Now, Location = "Near KNU", FinishTime = 5 },
+                    Distance = 1200, Date = DateTime.Now, Location = "Near KNU", FinishTime = 120 },
 
                 new Result { Surname = "Savchuk", Name = "Andriy", Patronymic = "Viktorovych", Age = 20, 
-                    Distance = 1000, Date = DateTime.Now, Location = "Stadium", FinishTime = 15 },
+                    Distance = 1000, Date = DateTime.Now, Location = "Stadium", FinishTime = 25 },
 
                 new Result { Surname = "Zhmyshenko", Name = "Valeriy", Patronymic = "Albertovych", Age = 54,
-                    Distance = 1488, Date = DateTime.Now, Location = "Samara", FinishTime = 3 }
+                    Distance = 900, Date = DateTime.Now, Location = "Samara", FinishTime = 18 }
             };
 
             allResults = new List<Result>();
@@ -97,10 +100,7 @@ namespace RunningCompetitionMVVM.ViewModel
             allResults.Add(results[1]);
             allResults.Add(results[2]);
 
-            ObservableCollection<Result> temp;
-            temp = new ObservableCollection<Result>(results.OrderBy(r => r.AverageSpeed).Take(5));
-            results.Clear();
-            foreach (Result j in temp) results.Add(j);
+            SortResults();
 
             newResult = new Result { Surname = "Surname", Name = "Name", Patronymic = "Patronymic", Age = 30, 
                     Distance = 1000, Date = DateTime.Now, Location = "Location", FinishTime = 60 };
